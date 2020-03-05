@@ -1,0 +1,14 @@
+#directory "_build";;
+#require "str";;
+#require "qcheck";;
+#require "csv";;
+#load_rec "table.cmo";;
+#load_rec "command.cmo";;
+#load_rec "schema.cmo";;
+#load_rec "eval.cmo";;
+#load_rec "main.cmo";;
+#load "lexer.cmo";;
+#load "parser.cmo";;
+#load "main.cmo";;
+open Ast;;
+open Main;;

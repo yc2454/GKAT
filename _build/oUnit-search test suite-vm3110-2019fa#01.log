@@ -1,0 +1,19 @@
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Start test search test suite:0:simple action init state.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Test search test suite:0:simple action init state is successful.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: End test search test suite:0:simple action init state.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Start test search test suite:2:single test config.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Test search test suite:2:single test config is successful.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: End test search test suite:2:single test config.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Start test search test suite:5:if init state, atom less than b.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Test search test suite:5:if init state, atom less than b is successful.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: End test search test suite:5:if init state, atom less than b.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Start test search test suite:7:if normal state.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Test search test suite:7:if normal state is successful.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: End test search test suite:7:if normal state.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: Start test search test suite:9:while init state atom less than b, action accepts.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 E: Test search test suite:9:while init state atom less than b, action accepts has failed.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 E: not equal in test search test suite:9:while init state atom less than b, action accepts.
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 E: Raised at file "src/oUnitAssert.ml", line 45, characters 8-27
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 E: Called from file "src/oUnitRunner.ml", line 46, characters 13-26
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 E: 
+2020-03-02T01:22:01+00:00 vm3110-2019fa#01 I: End test search test suite:9:while init state atom less than b, action accepts.
