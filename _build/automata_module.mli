@@ -16,6 +16,8 @@ module type AutomataSig = sig
 
   type transition_map = state -> atom -> output
 
+  type states = state list
+
   type t = (state list * transition_map * state)
 
   val get_states : t -> state list

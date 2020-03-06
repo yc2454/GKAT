@@ -17,11 +17,15 @@ module type AutomataSig = sig
 
   type transition_map = state -> atom -> output
 
+  type states = state list
+
   type t = (state list * transition_map * state)
 
   val get_states : t -> state list
 
 end
+
+open Automata
 
 module Make : AutomataSig = struct
 
@@ -39,8 +43,11 @@ module Make : AutomataSig = struct
 
   type transition_map = state -> atom -> output
 
+  type states = state list
+
   type t = (state list * transition_map * state)
 
   let get_states a = 
     let (s, _, _) = a in s
+
 end
