@@ -1,5 +1,5 @@
-UNITS=ast_factory parse eval main repl automata_module
-MLS_WITHOUT_MLIS=ast test automata
+UNITS=ast_factory parse eval main repl automata_module unionFind two_list_queue
+MLS_WITHOUT_MLIS=ast test automata 
 MLS=$(UNITS:=.ml) $(MLS_WITHOUT_MLIS:=.ml)
 OBJECTS=$(UNITS:=.cmo) $(MLS_WITHOUT_MLIS:=.cmo) parser.cmo
 MLIS=$(UNITS:=.mli)
