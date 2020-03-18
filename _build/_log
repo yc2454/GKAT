@@ -1,30 +1,38 @@
 ### Starting build.
 # Target: ast_factory.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:ast_factory.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules ast_factory.mli > ast_factory.mli.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules ast_factory.mli > ast_factory.mli.depends
 # Target: ast.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:ast.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules ast.ml > ast.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules ast.ml > ast.ml.depends
 # Target: ast.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:ast.cmo, file:ast.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o ast.cmo ast.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o ast.cmo ast.ml
 # Target: ast_factory.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:ast_factory.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o ast_factory.cmi ast_factory.mli # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o ast_factory.cmi ast_factory.mli
 # Target: ast_factory.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:ast_factory.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules ast_factory.ml > ast_factory.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules ast_factory.ml > ast_factory.ml.depends
 # Target: ast_factory.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:ast_factory.cmo, file:ast_factory.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o ast_factory.cmo ast_factory.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o ast_factory.cmo ast_factory.ml
 # Target: parse.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:parse.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules parse.mli > parse.mli.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules parse.mli > parse.mli.depends
 # Target: parse.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:parse.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o parse.cmi parse.mli # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o parse.cmi parse.mli
 # Target: parse.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:parse.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules parse.ml > parse.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules parse.ml > parse.ml.depends
 # Target: lexer.mll, tags: { package(oUnit), package(str), extension:mll, file:lexer.mll, lexer, ocaml, ocamllex, quiet, thread, traverse, use_menhir }
-/home/vagrant/.opam/4.08.1/bin/ocamllex.opt -q lexer.mll # cached
+ocamllex.opt -q lexer.mll
 # Target: lexer.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:lexer.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
 ocamlfind ocamldep -package oUnit -package str -modules lexer.ml > lexer.ml.depends # cached
 # Target: parser.mly.depends, tags: { package(oUnit), package(str), extension:mly, file:parser.mly, infer, menhir_ocamldep, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-menhir --raw-depend --ocamldep 'ocamlfind ocamldep -modules' parser.mly > parser.mly.depends # cached
+menhir --raw-depend --ocamldep 'ocamlfind ocamldep -modules' parser.mly > parser.mly.depends
 # Target: parser.mly, tags: { package(oUnit), package(str), byte, compile, extension:ml, extension:mly, file:parser.ml, file:parser.mly, infer, menhir, ocaml, parser, quiet, thread, traverse, use_menhir }
-menhir --ocamlc 'ocamlfind ocamlc -thread -package oUnit -package str' --infer parser.mly # cached
+menhir --ocamlc 'ocamlfind ocamlc -thread -package oUnit -package str' --infer parser.mly
++ menhir --ocamlc 'ocamlfind ocamlc -thread -package oUnit -package str' --infer parser.mly
+Warning: 8 states have shift/reduce conflicts.
+Warning: one state has reduce/reduce conflicts.
+Warning: 16 shift/reduce conflicts were arbitrarily resolved.
+Warning: 4 reduce/reduce conflicts were arbitrarily resolved.
+File "parser.mly", line 45, characters 4-32:
+Warning: production expr -> expr AND bool_expr is never reduced.
+Warning: in total, 1 production is never reduced.
 # Target: parser.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:parser.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
 ocamlfind ocamldep -package oUnit -package str -modules parser.mli > parser.mli.depends # cached
 # Target: parser.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:parser.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
@@ -32,61 +40,61 @@ ocamlfind ocamlc -c -thread -package oUnit -package str -o parser.cmi parser.mli
 # Target: lexer.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:lexer.cmo, file:lexer.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
 ocamlfind ocamlc -c -thread -package oUnit -package str -o lexer.cmo lexer.ml # cached
 # Target: parse.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:parse.cmo, file:parse.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o parse.cmo parse.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o parse.cmo parse.ml
 # Target: eval.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:eval.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules eval.mli > eval.mli.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules eval.mli > eval.mli.depends
 # Target: automata.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:automata.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules automata.ml > automata.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules automata.ml > automata.ml.depends
 # Target: automata.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:automata.cmo, file:automata.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o automata.cmo automata.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o automata.cmo automata.ml
 # Target: eval.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:eval.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o eval.cmi eval.mli # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o eval.cmi eval.mli
 # Target: eval.ml.depends, tags: { package(oUnit), package(str), coverage, extension:ml, file:eval.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules eval.ml > eval.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules eval.ml > eval.ml.depends
 # Target: eval.cmo, tags: { package(oUnit), package(str), byte, compile, coverage, extension:cmo, extension:ml, file:eval.cmo, file:eval.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o eval.cmo eval.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o eval.cmo eval.ml
 # Target: main.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:main.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules main.mli > main.mli.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules main.mli > main.mli.depends
 # Target: main.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:main.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o main.cmi main.mli # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o main.cmi main.mli
 # Target: main.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:main.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules main.ml > main.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules main.ml > main.ml.depends
 # Target: main.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:main.cmo, file:main.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o main.cmo main.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o main.cmo main.ml
 # Target: repl.ml.depends, tags: { package(lambda-term), package(lwt), package(oUnit), package(react), package(str), extension:ml, file:repl.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package react -package lwt -package lambda-term -package oUnit -package str -modules repl.ml > repl.ml.depends # cached
+ocamlfind ocamldep -package react -package lwt -package lambda-term -package oUnit -package str -modules repl.ml > repl.ml.depends
 # Target: repl.cmo, tags: { package(lambda-term), package(lwt), package(oUnit), package(react), package(str), byte, compile, extension:cmo, extension:ml, file:repl.cmo, file:repl.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package react -package lwt -package lambda-term -package oUnit -package str -o repl.cmo repl.ml # cached
+ocamlfind ocamlc -c -thread -package react -package lwt -package lambda-term -package oUnit -package str -o repl.cmo repl.ml
 # Target: automata_module.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:automata_module.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules automata_module.mli > automata_module.mli.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules automata_module.mli > automata_module.mli.depends
 # Target: automata_module.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:automata_module.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o automata_module.cmi automata_module.mli # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o automata_module.cmi automata_module.mli
 # Target: automata_module.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:automata_module.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules automata_module.ml > automata_module.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules automata_module.ml > automata_module.ml.depends
 # Target: automata_module.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:automata_module.cmo, file:automata_module.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o automata_module.cmo automata_module.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o automata_module.cmo automata_module.ml
 # Target: unionFind.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:unionFind.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules unionFind.mli > unionFind.mli.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules unionFind.mli > unionFind.mli.depends
 # Target: unionFind.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:unionFind.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o unionFind.cmi unionFind.mli # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o unionFind.cmi unionFind.mli
 # Target: unionFind.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:unionFind.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules unionFind.ml > unionFind.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules unionFind.ml > unionFind.ml.depends
 # Target: unionFind.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:unionFind.cmo, file:unionFind.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o unionFind.cmo unionFind.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o unionFind.cmo unionFind.ml
 # Target: two_list_queue.mli.depends, tags: { package(oUnit), package(str), extension:mli, file:two_list_queue.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
 ocamlfind ocamldep -package oUnit -package str -modules two_list_queue.mli > two_list_queue.mli.depends
 # Target: two_list_queue.cmi, tags: { package(oUnit), package(str), byte, compile, extension:mli, file:two_list_queue.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
 ocamlfind ocamlc -c -thread -package oUnit -package str -o two_list_queue.cmi two_list_queue.mli
 # Target: two_list_queue.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:two_list_queue.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules two_list_queue.ml > two_list_queue.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules two_list_queue.ml > two_list_queue.ml.depends
 # Target: two_list_queue.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:two_list_queue.cmo, file:two_list_queue.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
 ocamlfind ocamlc -c -thread -package oUnit -package str -o two_list_queue.cmo two_list_queue.ml
 # Target: test.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:test.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules test.ml > test.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules test.ml > test.ml.depends
 # Target: test.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:test.cmo, file:test.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o test.cmo test.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o test.cmo test.ml
 # Target: parser.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:parser.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
-ocamlfind ocamldep -package oUnit -package str -modules parser.ml > parser.ml.depends # cached
+ocamlfind ocamldep -package oUnit -package str -modules parser.ml > parser.ml.depends
 # Target: parser.cmo, tags: { package(oUnit), package(str), byte, compile, extension:cmo, extension:ml, file:parser.cmo, file:parser.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
-ocamlfind ocamlc -c -thread -package oUnit -package str -o parser.cmo parser.ml # cached
+ocamlfind ocamlc -c -thread -package oUnit -package str -o parser.cmo parser.ml
 # Compilation successful.

@@ -837,7 +837,7 @@ and _menhir_errorcase : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return
 and _menhir_reduce16 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
   fun _menhir_env _menhir_stack _menhir_s ->
     let _v : (unit option) = 
-# 114 "/home/vagrant/.opam/4.08.1/lib/menhir/standard.mly"
+# 114 "<standard.mly>"
     ( None )
 # 843 "parser.ml"
      in
@@ -937,7 +937,7 @@ and _menhir_run38 : _menhir_env -> 'ttv_tail -> _menhir_state -> 'ttv_return =
     let _menhir_stack = Obj.magic _menhir_stack in
     let x = () in
     let _v : (unit option) = 
-# 116 "/home/vagrant/.opam/4.08.1/lib/menhir/standard.mly"
+# 116 "<standard.mly>"
     ( Some x )
 # 943 "parser.ml"
      in
@@ -1045,7 +1045,7 @@ and parse_phrase : (Lexing.lexbuf -> token) -> Lexing.lexbuf -> (
         _menhir_env._menhir_error <- true;
         _menhir_errorcase _menhir_env (Obj.magic _menhir_stack) MenhirState37)
 
-# 269 "/home/vagrant/.opam/4.08.1/lib/menhir/standard.mly"
+# 269 "<standard.mly>"
   
 
 # 1052 "parser.ml"
