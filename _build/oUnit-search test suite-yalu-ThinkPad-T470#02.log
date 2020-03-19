@@ -1,0 +1,12 @@
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Start test search test suite:1:simple action normal state.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Test search test suite:1:simple action normal state is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: End test search test suite:1:simple action normal state.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Start test search test suite:3:single test accept.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Test search test suite:3:single test accept is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: End test search test suite:3:single test accept.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Start test search test suite:5:if init state, atom less than b.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Test search test suite:5:if init state, atom less than b is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: End test search test suite:5:if init state, atom less than b.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Start test search test suite:7:if normal state.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: Test search test suite:7:if normal state is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#02 I: End test search test suite:7:if normal state.

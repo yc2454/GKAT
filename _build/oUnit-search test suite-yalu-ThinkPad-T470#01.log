@@ -1,0 +1,15 @@
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Start test search test suite:0:simple action init state.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Test search test suite:0:simple action init state is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: End test search test suite:0:simple action init state.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Start test search test suite:2:single test config.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Test search test suite:2:single test config is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: End test search test suite:2:single test config.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Start test search test suite:4:single test reject.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Test search test suite:4:single test reject is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: End test search test suite:4:single test reject.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Start test search test suite:6:if init state, atom more than b.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Test search test suite:6:if init state, atom more than b is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: End test search test suite:6:if init state, atom more than b.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Start test search test suite:8:while init state atom more than b.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: Test search test suite:8:while init state atom more than b is successful.
+2020-03-19T18:05:25+00:00 yalu-ThinkPad-T470#01 I: End test search test suite:8:while init state atom more than b.
