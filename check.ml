@@ -63,12 +63,31 @@ class union_find x y = object(self)
   initializer self#construct x y
 end
 
-let rec all_atoms config = 
-  match config with
-  | x :: xs -> ((x, true) :: all_atoms xs) @ ((x, false) :: all_atoms xs)
-  | [] -> []
+let rec add_to_ll a ll = 
+  match ll with 
+  | l :: ls -> (a :: l) :: (add_to_ll a ls)
+  | [] -> [[a]]
 
-let check aX aY = 
+let rec one_len len acc lst = 
+  match lst with
+  | x :: xs -> 
+    if List.length x = len then one_len len (x::acc) xs
+    else one_len len acc xs
+  | [] -> acc
+
+let sort_atoms len all = 
+  all |> List.sort_uniq compare |> one_len len []
+
+let rec all_atoms config = 
+  let all = 
+    match config with
+    | x :: xs -> (add_to_ll (x, true) (all_atoms xs)) 
+    @ (add_to_ll (x, false) (all_atoms xs))
+    | [] -> []
+  in
+  sort_atoms (List.length config) all
+
+let check aX aY config = 
 
   let (x, theta_x, lx), (y, theta_y, ly) = aX, aY in
   let todo = ref (TLQ.enqueue (lx, ly) TLQ.empty) in
