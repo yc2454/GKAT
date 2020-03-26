@@ -87,7 +87,7 @@ let rec all_atoms config =
   in
   sort_atoms (List.length config) all
 
-let check aX aY config = 
+let check aX aY ats = 
 
   let (x, theta_x, lx), (y, theta_y, ly) = aX, aY in
   let todo = ref (TLQ.enqueue (lx, ly) TLQ.empty) in
@@ -103,5 +103,18 @@ let check aX aY config =
     | Some q -> todo := q;
       let (r_x, r_y) = df#find st_x, df#find st_y in
       if r_x = r_y then ()
-      else ()
+      
+      else 
+
+      for x=0 to (List.length ats) do
+        let a_ats = Array.of_list ats in
+        let at = a_ats.(x) in
+        match (theta_x st_x at), (theta_y st_y at) with
+        | Accept, Accept
+        | Reject, Reject -> ()
+        | Transition (_, State st_x'), Transition (_, State st_y') ->
+          todo := (TLQ.enqueue (st_x', st_y') !todo)
+        | _ -> ()
+      done;
+      df#union r_x r_y
   done
