@@ -116,5 +116,7 @@ let check aX aY ats =
           todo := (TLQ.enqueue (st_x', st_y') !todo)
         | _ -> ()
       done;
+
       df#union r_x r_y
+      
   done
