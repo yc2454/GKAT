@@ -167,3 +167,14 @@ let eval_phrase ph =
   match ph with
   | Exp exp -> 
     eval_exp exp
+
+let rec a2p acc (auto : automata) atoms = 
+  let (sts, theta, init_st) = auto in
+  match atoms with
+  | h :: t -> begin
+    match theta init_st h with
+    | Accept -> acc
+    | Reject -> acc
+    | Transition (p, st') -> a2p (p :: acc) (sts, theta, st') t
+    end
+  | [] -> []

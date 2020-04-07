@@ -13,3 +13,5 @@ val eval_phrase : phrase -> automata * test_config
 val string_of_automata : automata -> string
 
 val string_of_config : test_config -> string
+
+val a2p : id list -> automata -> atom list -> id list
