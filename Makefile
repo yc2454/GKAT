@@ -1,10 +1,11 @@
 UNITS=ast_factory parse eval main repl automata_module unionFind two_list_queue
-MLS_WITHOUT_MLIS=ast test automata 
+MLS_WITHOUT_MLIS=ast test automata check
 MLS=$(UNITS:=.ml) $(MLS_WITHOUT_MLIS:=.ml)
 OBJECTS=$(UNITS:=.cmo) $(MLS_WITHOUT_MLIS:=.cmo) parser.cmo
 MLIS=$(UNITS:=.mli)
 TEST=test.byte
 REPL=repl.byte
+CHECK=check.byte
 OCAMLBUILD=ocamlbuild -use-ocamlfind -plugin-tag 'package(bisect_ppx-ocamlbuild)'
 PKGS=oUnit,str
 
@@ -27,7 +28,7 @@ repl:
 	$(OCAMLBUILD) $(REPL) && ./$(REPL)
 
 check:
-	bash checkenv.sh && bash checktypes.sh
+	$(OCAMLBUILD) $(CHECK) && ./$(CHECK)
 
 finalcheck: check
 	bash checkzip.sh
