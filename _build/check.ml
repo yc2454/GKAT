@@ -83,7 +83,6 @@ let rec all_atoms config =
   sort_atoms (List.length config) all
 
 let check (aX : automata) (aY : automata) ats = 
-
   let (x, theta_x, lx), (y, theta_y, ly) = aX, aY in
   let todo = ref (TLQ.enqueue (lx, ly) TLQ.empty) in
   let df = new union_find (lx::x) (ly::y) in
@@ -125,3 +124,33 @@ let atoms = []
 
 let () = 
   check x y atoms
+
+let gkat_exp_act = "p"
+let gkat_exp_asrt = "b"
+let gkat_exp_seq = "p1*p2"
+let gkat_exp_if = "p3 +(b1 * b2) p4"
+let gkat_exp_while = "p5(b2)"
+
+let empty_func (s : state) (a : atom) : output = 
+  Reject
+
+let get_atmt_from_str s = 
+  let (a, _) = 
+    try
+      s
+      |> Parse.parse_expr
+      |> Eval.eval_exp_init
+    with
+      Parse.SyntaxError s | Failure s -> 
+      (([State ""], empty_func, State ""), [])
+  in
+  a
+
+let atmt_act = get_atmt_from_str gkat_exp_act
+let atmt_assert = get_atmt_from_str gkat_exp_asrt
+let atmt_seq = get_atmt_from_str gkat_exp_seq
+let atmt_if = get_atmt_from_str gkat_exp_if
+let atmt_while = get_atmt_from_str gkat_exp_while
+
+let () = 
+  check atmt_assert atmt_seq (all_atoms ["b"])
