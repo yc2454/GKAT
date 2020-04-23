@@ -40,7 +40,7 @@ let rec exp_name e =
   match e with
   | Assert b -> "assert" ^ " " ^ (bexp_name b)
   | Avar p -> "action" ^ " " ^ p
-  | If (e, b, f) -> "if" ^ " " ^ (bexp_name b) ^ "then" ^ " " ^ (exp_name e)
+  | If (e, b, f) -> "if" ^ " " ^ (bexp_name b) ^ " " ^ "then" ^ " " ^ (exp_name e)
                     ^ " " ^ "else" ^ " " ^ (exp_name f)
   | Seq (e, f) -> (exp_name e) ^ " " ^ "then" ^ " " ^ (exp_name f)
   | While (b, e) -> "while" ^ " " ^ (bexp_name b) ^ " " ^ "do" 
@@ -173,8 +173,8 @@ let rec a2p acc (auto : automata) atoms =
   match atoms with
   | h :: t -> begin
     match theta init_st h with
-    | Accept -> acc
-    | Reject -> acc
+    | Accept -> List.rev acc
+    | Reject -> List.rev acc
     | Transition (p, st') -> a2p (p :: acc) (sts, theta, st') t
     end
-  | [] -> []
+  | [] -> List.rev acc

@@ -100,11 +100,11 @@ let check (aX : automata) (aY : automata) ats =
       try
         df#find st_x, df#find st_y 
       with
-      | Not_found -> failwith "cao"
+      | Not_found -> failwith "state not found in forest"
       in
       if r_x = r_y then ()
       else if List.length ats = 0 then flag := false else
-        for x=0 to (List.length ats) do
+        for x=0 to (List.length ats) - 1 do
           let a_ats = Array.of_list ats in
           let at = a_ats.(x) in
           match (theta_x (State st_x) at), (theta_y (State st_y) at) with
@@ -122,13 +122,14 @@ let x = ([], (fun a b -> Accept), State "a")
 let y = ([], (fun a b -> Accept), State "a")
 let atoms = []
 
-let () = 
-  check x y atoms
+(* let () = 
+  check x y atoms *)
 
 let gkat_exp_act = "p"
 let gkat_exp_asrt = "b"
 let gkat_exp_seq = "p1*p2"
-let gkat_exp_if = "p3 +(b1 * b2) p4"
+let gkat_exp_if_1 = "p3 +(b1 * b2) p4"
+let gkat_exp_if_2 = "p3 +(b1 * b2) p6"
 let gkat_exp_while = "p5(b2)"
 
 let empty_func (s : state) (a : atom) : output = 
@@ -149,8 +150,15 @@ let get_atmt_from_str s =
 let atmt_act = get_atmt_from_str gkat_exp_act
 let atmt_assert = get_atmt_from_str gkat_exp_asrt
 let atmt_seq = get_atmt_from_str gkat_exp_seq
-let atmt_if = get_atmt_from_str gkat_exp_if
+let atmt_if_1 = get_atmt_from_str gkat_exp_if_1
+let atme_if_2 = get_atmt_from_str gkat_exp_if_2
 let atmt_while = get_atmt_from_str gkat_exp_while
 
 let () = 
   check atmt_assert atmt_seq (all_atoms ["b"])
+
+let () = 
+  check atmt_act atmt_act (all_atoms [])
+
+let () = 
+  check atmt_if_1 atme_if_2 (all_atoms ["b1"; "b2"])
