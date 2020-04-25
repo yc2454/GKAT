@@ -1,5 +1,6 @@
 open Ast
 open Automata
+open Parse
 
 let empty_func (s : state) (a : atom) : output = 
   Reject
@@ -167,6 +168,11 @@ let eval_phrase ph =
   match ph with
   | Exp exp -> 
     eval_exp exp
+
+let interp_expr s =
+    s 
+    |> parse_expr
+    |> eval_exp_init
 
 let rec a2p acc (auto : automata) atoms = 
   let (sts, theta, init_st) = auto in

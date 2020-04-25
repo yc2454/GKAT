@@ -19,7 +19,6 @@ module StringMap = Map.Make(String)
 class union_find x y = object(self)
 
   val forest = ref StringMap.empty
-
   val size = ref StringMap.empty
 
   method find (v : string) = 
@@ -53,7 +52,7 @@ class union_find x y = object(self)
       forest := StringMap.add sy sy !forest;
       size := StringMap.add sx 1 !size;
       size := StringMap.add sy 1 !size;
-      self#construct tx []
+      self#construct tx ty
 
   initializer self#construct x y
 end
@@ -91,16 +90,17 @@ let check (aX : automata) (aY : automata) ats =
     let (State st_x, State st_y) = 
       match (TLQ.peek !todo) with
       | Some(sx, sy) -> (sx, sy)
-      | None -> failwith "unexpected"
+      | None -> failwith "empty automata"
     in
     match TLQ.dequeue !todo with
     | None -> ()
-    | Some q -> todo := q; 
+    | Some q -> 
+      todo := q; 
       let (r_x, r_y) = 
       try
         df#find st_x, df#find st_y 
       with
-      | Not_found -> failwith "state not found in forest"
+      | Not_found -> failwith "forest construction error"
       in
       if r_x = r_y then ()
       else if List.length ats = 0 then flag := false else

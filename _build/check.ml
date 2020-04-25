@@ -19,7 +19,6 @@ module StringMap = Map.Make(String)
 class union_find x y = object(self)
 
   val forest = ref StringMap.empty
-
   val size = ref StringMap.empty
 
   method find (v : string) = 
@@ -53,7 +52,7 @@ class union_find x y = object(self)
       forest := StringMap.add sy sy !forest;
       size := StringMap.add sx 1 !size;
       size := StringMap.add sy 1 !size;
-      self#construct tx []
+      self#construct tx ty
 
   initializer self#construct x y
 end

@@ -15,3 +15,5 @@ val string_of_automata : automata -> string
 val string_of_config : test_config -> string
 
 val a2p : id list -> automata -> atom list -> id list
+
+val interp_expr : string -> Automata.automata * Automata.test_config
