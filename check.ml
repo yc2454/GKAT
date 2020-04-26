@@ -16,6 +16,40 @@ let add a array = Array.append [|a|] array
 
 module StringMap = Map.Make(String)
 
+let rec is_dead dead a st atoms = 
+  let (_, theta, _) = a in
+  match atoms with
+  | h :: t -> 
+    begin
+    match theta st h with
+    | Accept -> is_dead (not dead) a st t
+    | Reject -> is_dead dead a st t
+    | Transition(p, new_st) -> is_dead (is_dead dead a new_st atoms) a st t
+    end
+  | [] -> dead
+
+let rec normalize norm_a a (ats : atom list) : automata =
+  let (sts, theta, i) = a in
+  match sts with
+  | [] -> norm_a
+  | h :: t -> 
+    begin
+    match ats with
+    | atom :: atoms -> 
+      begin
+      match theta h atom with
+      | Accept
+      | Reject -> normalize norm_a (t, theta, i) atoms
+      | Transition(_, st) -> 
+        if (is_dead true a st ats) 
+        then 
+        let (norm_theta : transition_map) = fun s a -> if s = st && a = atom then Reject else theta s a in
+        normalize (sts, norm_theta, i) (t, theta, i) atoms
+        else normalize norm_a (t, theta, i) atoms
+      end
+    | [] -> normalize norm_a (t, theta, i) ats
+    end
+
 class union_find x y = object(self)
 
   val forest = ref StringMap.empty
@@ -30,7 +64,7 @@ class union_find x y = object(self)
     if s_rv > s_ru then 
       ((forest := StringMap.add r_v r_u !forest); 
        (size := StringMap.add r_u (s_ru + s_rv) !size))
-    else ((forest := StringMap.add r_v r_u !forest);
+    else ((forest := StringMap.add r_u r_v !forest);
           (size := StringMap.add r_v (s_ru + s_rv) !size))
 
   method construct x y = 
@@ -110,8 +144,10 @@ let check (aX : automata) (aY : automata) ats =
           match (theta_x (State st_x) at), (theta_y (State st_y) at) with
           | Accept, Accept
           | Reject, Reject -> ()
-          | Transition (_, State st_x'), Transition (_, State st_y') ->
+          | Transition (p_x, State st_x'), Transition (p_y, State st_y') ->
+            if p_x = p_y then
             todo := (TLQ.enqueue ((State st_x'), (State st_y')) !todo)
+            else flag := false
           | _ -> flag := false
         done;
       df#union r_x r_y
@@ -147,6 +183,18 @@ let get_atmt_from_str s =
   in
   a
 
+let get_config_from_str s = 
+  let (_, c) = 
+    try
+      s
+      |> Parse.parse_expr
+      |> Eval.eval_exp_init
+    with
+      Parse.SyntaxError s | Failure s -> 
+      (([State ""], empty_func, State ""), [])
+  in
+  c
+
 let atmt_act = get_atmt_from_str gkat_exp_act
 let atmt_assert = get_atmt_from_str gkat_exp_asrt
 let atmt_seq = get_atmt_from_str gkat_exp_seq
@@ -154,11 +202,21 @@ let atmt_if_1 = get_atmt_from_str gkat_exp_if_1
 let atme_if_2 = get_atmt_from_str gkat_exp_if_2
 let atmt_while = get_atmt_from_str gkat_exp_while
 
-let () = 
+(* let () = 
   check atmt_assert atmt_seq (all_atoms ["b"])
 
 let () = 
   check atmt_act atmt_act (all_atoms [])
 
 let () = 
-  check atmt_if_1 atme_if_2 (all_atoms ["b1"; "b2"])
+  check atmt_if_1 atme_if_2 (all_atoms ["b1"; "b2"]) *)
+
+let check_equiv s1 s2 = 
+  let a1, a2 = get_atmt_from_str s1, get_atmt_from_str s2 in
+  let c = (get_config_from_str s1) @ (get_config_from_str s2) in
+  let ats = (all_atoms c) in
+  let norm_a1, norm_a2 = normalize a1 a1 ats, normalize a2 a2 ats in
+  check norm_a1 norm_a2 ats
+
+let () = 
+  check_equiv "p1*p3" "p1*p2"
