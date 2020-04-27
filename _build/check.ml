@@ -217,6 +217,3 @@ let check_equiv s1 s2 =
   let ats = (all_atoms c) in
   let norm_a1, norm_a2 = normalize a1 a1 ats, normalize a2 a2 ats in
   check norm_a1 norm_a2 ats
-
-let () = 
-  check_equiv "p1*p3" "p1*p2"
