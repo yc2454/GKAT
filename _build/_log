@@ -18,7 +18,7 @@ ocamlfind ocamlc -c -thread -package oUnit -package str -o parse.cmi parse.mli #
 # Target: parse.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:parse.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
 ocamlfind ocamldep -package oUnit -package str -modules parse.ml > parse.ml.depends # cached
 # Target: lexer.mll, tags: { package(oUnit), package(str), extension:mll, file:lexer.mll, lexer, ocaml, ocamllex, quiet, thread, traverse, use_menhir }
-ocamllex.opt -q lexer.mll # cached
+/home/yalu/.opam/4.08.1/bin/ocamllex.opt -q lexer.mll # cached
 # Target: lexer.ml.depends, tags: { package(oUnit), package(str), extension:ml, file:lexer.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
 ocamlfind ocamldep -package oUnit -package str -modules lexer.ml > lexer.ml.depends # cached
 # Target: parser.mly.depends, tags: { package(oUnit), package(str), extension:mly, file:parser.mly, infer, menhir_ocamldep, ocaml, ocamldep, quiet, thread, traverse, use_menhir }

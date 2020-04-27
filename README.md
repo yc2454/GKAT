@@ -31,8 +31,8 @@ cd Interpreter/
 make
 ```
 ```Ocaml
-let (automata, test_config) = Eval.interp_expr "p1*p2*(p3 +b1 p4)*p5(b2)"
-Eval.a2p [] automata [[("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", false); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", false)];]
+let (automata, test_config) = interp_expr "p1*p2*(p3 +b1 p4)*p5(b2)"
+a2p [] automata [[("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", false); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", false)];]
 ```
 
 The function Eval.a2p that we use above has the type

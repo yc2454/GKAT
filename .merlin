@@ -3,7 +3,6 @@ PKG oUnit
 PKG str
 PKG unix
 PKG qcheck
-PKG csv
 PKG ocamlbuild
 PKG bisect_ppx-ocamlbuild
 PKG lwt
