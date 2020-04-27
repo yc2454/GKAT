@@ -16,9 +16,7 @@ GKAT expressions using a Union-Find algorithm
 
 ## Translating
 
-The procedure below is an example of translating a GKAT expression string into an automaton,
-and we show the correctness of the translation by feeding in atoms, and 
-checking the output actions.
+The procedure below is an example of translation, and we show the correctness of the translation by feeding in atoms and checking the output actions. This is because the language denoted by GKAT satisfies the *Determinacy Property*
 
 ```bash
 cd Interpreter/
