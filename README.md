@@ -31,22 +31,29 @@ cd GKAT/
 make
 ```
 ```Ocaml
+(* get the automata from a GKAT string *)
 let (automata, test_config) = interp_expr "p1*p2*(p3 +b1 p4)*p5(b2)";;
+(* design the sequence of atoms *)
 let atom_list = [[("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", false); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", false)];];;
+(* call function to output the actions *)
 output_action_sequence automata atom_list;;
 ```
 
-The function Eval.a2p that we use above has the type
+The function output_action_sequence that we use above has the type
 ```Ocaml
-a2p : action_id list -> automata -> atom list -> action_id list
+output_action_sequence : Automata.automata -> Automata.atom list -> Ast.id list
 ```
 it takes in a list of atoms, and outputs the determinated actions from the automaton.
 The output should be ["p1"; "p2"; "p4"; "p5"; "p5"]. 
 
 ### Checking equivalence
+The function check_equiv will take two GKAT strings, convert them to automata, normalize the automata, and then the use Union-Find algorithm to check their equivalence
+
 ```bash
 make
 ```
 ```Ocaml
 check_equiv "p1*p2" "p1*p3";;
 ```
+
+It will output "not equal"
