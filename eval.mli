@@ -17,3 +17,5 @@ val string_of_config : test_config -> string
 val a2p : id list -> automata -> atom list -> id list
 
 val interp_expr : string -> Automata.automata * Automata.test_config
+
+val output_action_sequence : Automata.automata -> Automata.atom list -> Ast.id list

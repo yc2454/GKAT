@@ -184,3 +184,5 @@ let rec a2p acc (auto : automata) atoms =
     | Transition (p, st') -> a2p (p :: acc) (sts, theta, st') t
     end
   | [] -> List.rev acc
+
+let output_action_sequence = a2p []

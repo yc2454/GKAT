@@ -1,4 +1,4 @@
-# Interpreter
+# GKAT Interpreter
 
 This an student made interpreter of the model language GKAT. Currently,
 several tasks are supported:
@@ -27,14 +27,13 @@ Moreover, the procedure below is an example of translation, and we show the corr
 The procedure is done in Utop.
 
 ```bash
-cd Interpreter/
+cd GKAT/
 make
 ```
 ```Ocaml
 let (automata, test_config) = interp_expr "p1*p2*(p3 +b1 p4)*p5(b2)";;
-let init = [];;
 let atom_list = [[("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", false); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", true)]; [("b1", true); ("b2", false)];];;
-a2p init automata atom_list;;
+output_action_sequence automata atom_list;;
 ```
 
 The function Eval.a2p that we use above has the type
