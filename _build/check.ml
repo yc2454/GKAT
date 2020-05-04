@@ -152,7 +152,7 @@ let check (aX : automata) (aY : automata) ats =
         done;
       df#union r_x r_y
   done;
-  if !flag then print_endline "automata equal" else print_endline "automata not equal"
+  if !flag then print_endline "equal" else print_endline "not equal"
 
 let x = ([], (fun a b -> Accept), State "a")
 let y = ([], (fun a b -> Accept), State "a")
@@ -194,22 +194,6 @@ let get_config_from_str s =
       (([State ""], empty_func, State ""), [])
   in
   c
-
-let atmt_act = get_atmt_from_str gkat_exp_act
-let atmt_assert = get_atmt_from_str gkat_exp_asrt
-let atmt_seq = get_atmt_from_str gkat_exp_seq
-let atmt_if_1 = get_atmt_from_str gkat_exp_if_1
-let atme_if_2 = get_atmt_from_str gkat_exp_if_2
-let atmt_while = get_atmt_from_str gkat_exp_while
-
-(* let () = 
-  check atmt_assert atmt_seq (all_atoms ["b"])
-
-let () = 
-  check atmt_act atmt_act (all_atoms [])
-
-let () = 
-  check atmt_if_1 atme_if_2 (all_atoms ["b1"; "b2"]) *)
 
 let check_equiv s1 s2 = 
   let a1, a2 = get_atmt_from_str s1, get_atmt_from_str s2 in

@@ -32,8 +32,6 @@ check:
 
 finalcheck: check
 	bash checkzip.sh
-	bash finalcheck.sh
-
 zip:
 	zip a6src.zip *.ml* _tags Makefile
 
